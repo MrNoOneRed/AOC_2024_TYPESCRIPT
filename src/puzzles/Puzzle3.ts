@@ -20,8 +20,8 @@ export default class Puzzle1 implements PuzzleInterface {
 
     part1() {
         let result: number = 0;
-        let mul_match: string[];
-        let numbers_match: string[];
+        let mul_match: RegExpExecArray | null;
+        let numbers_match: RegExpExecArray | null;
         const reg_mul = /(mul\(\d{0,3},\d{0,3}\))/g;
 
         while((mul_match = reg_mul.exec(this.input.trim())) !== null) {
@@ -30,9 +30,11 @@ export default class Puzzle1 implements PuzzleInterface {
 
             numbers_match = reg_numbers.exec(mul);
 
-            const numbers: string[] = numbers_match[0].split(',');
+            if(numbers_match){
+                const numbers: string[] = numbers_match[0].split(',');
 
-            result += parseInt(numbers[0]) * parseInt(numbers[1]);
+                result += parseInt(numbers[0]) * parseInt(numbers[1]);
+            }
         }
 
         console.log(result);
@@ -40,8 +42,8 @@ export default class Puzzle1 implements PuzzleInterface {
 
     part2() {
         let result: number = 0;
-        let match1: string[];
-        let match2: string[];
+        let match1: RegExpExecArray | null;
+        let match2: RegExpExecArray | null;
         let enabled = true;
         const reg_main = /(mul\(\d{0,3},\d{0,3}\))|(do\(\))|(don't\(\))/g;
 
@@ -63,16 +65,16 @@ export default class Puzzle1 implements PuzzleInterface {
 
                         match2 = reg_numbers.exec(entry);
 
-                        const numbers: string[] = match2[0].split(',');
+                        if(match2) {
+                            const numbers: string[] = match2[0].split(',');
 
-                        result += parseInt(numbers[0]) * parseInt(numbers[1]);
+                            result += parseInt(numbers[0]) * parseInt(numbers[1]);
+                        }
                     }
                     break;
             }
-
         }
         console.log(result);
     }
-
 }
 

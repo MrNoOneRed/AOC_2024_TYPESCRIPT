@@ -20,7 +20,6 @@ export default class Puzzle1 implements PuzzleInterface {
     parseInput() {
         const filePath = `./input/puzzle_${this.day}${this.example ? 'e' : ''}.txt`;
         const fileData = fs.readFileSync(filePath, 'utf-8');
-        const reg = /(\d+)/g;
 
         this.table = [];
 

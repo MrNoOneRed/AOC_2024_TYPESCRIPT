@@ -43,8 +43,8 @@ export default class Puzzle1 implements PuzzleInterface {
         this.right.sort();
 
         while(this.left.length) {
-            const left = this.left.shift();
-            const right = this.right.shift();
+            const left = this.left.shift() ?? 0;
+            const right = this.right.shift() ?? 0;
             const sum = Math.abs(left - right);
 
             result += sum;
@@ -57,7 +57,7 @@ export default class Puzzle1 implements PuzzleInterface {
         let result: number = 0;
 
         while(this.left.length) {
-            const left = this.left.shift();
+            const left = this.left.shift() ?? 0;
             const rights = this.right.filter((right) => right === left);
             const sum = left * rights.length;
 
