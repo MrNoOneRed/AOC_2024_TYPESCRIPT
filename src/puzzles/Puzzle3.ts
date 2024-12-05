@@ -1,6 +1,6 @@
 import * as fs from "node:fs";
 
-export default class Puzzle1 implements PuzzleInterface {
+export default class Puzzle3 implements PuzzleInterface {
     declare day: number;
     declare example: boolean;
 

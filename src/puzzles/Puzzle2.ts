@@ -5,7 +5,7 @@ enum EDIR {
     down = 'down'
 }
 
-export default class Puzzle1 implements PuzzleInterface {
+export default class Puzzle2 implements PuzzleInterface {
     declare day: number;
     declare example: boolean;
 

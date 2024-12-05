@@ -14,7 +14,7 @@ const xDirections = [
 const word = 'XMAS';
 const xWord = 'MAS';
 
-export default class Puzzle1 implements PuzzleInterface {
+export default class Puzzle4 implements PuzzleInterface {
     declare day: number;
     declare example: boolean;
 
