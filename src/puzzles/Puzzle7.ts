@@ -5,7 +5,7 @@ interface IData {
     numbers: number[]
 }
 
-export default class Puzzle6 implements PuzzleInterface {
+export default class Puzzle7 implements PuzzleInterface {
     declare day: number;
     declare example: boolean;
 
