@@ -54,7 +54,7 @@ export default class Puzzle11 implements PuzzleInterface {
         const filePath = `./input/puzzle_${this.day}${this.example ? 'e' : ''}.txt`;
         const fileData = fs.readFileSync(filePath, 'utf-8');
 
-        fileData.split(/\r?\n/).forEach((line, y) => {
+        fileData.split(/\r?\n/).forEach((line) => {
             if(line) {
                 this.map.push(line.trim().split(''));
             }
@@ -194,7 +194,6 @@ export default class Puzzle11 implements PuzzleInterface {
             let current = side[0];
             let max = side[side.length - 1];
 
-            let connected = false;
             let prev = -1;
             while(current <= max) {
                 if(side.includes(current)) {
