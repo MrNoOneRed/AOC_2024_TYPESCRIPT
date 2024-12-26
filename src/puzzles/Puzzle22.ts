@@ -54,12 +54,15 @@ export default class Puzzle11 implements PuzzleInterface {
 
         for (let number of numbers) {
             const firstSequences: Set<string> = new Set();
+
             delta = 0, minus1 = 0, minus2 = 0, minus3 = 0;
             secret = number;
+
             for (let i = 0; i < 2000; i++) {
                 secret = this.mod((secret * 64) ^ secret, 16777216);
                 secret = this.mod(Math.floor(secret / 32) ^ secret, 16777216);
                 secret = this.mod((secret * 2048) ^ secret, 16777216);
+
                 if (part === 2) {
                     price = secret % 10;
                     if (i > 0) {
@@ -67,8 +70,10 @@ export default class Puzzle11 implements PuzzleInterface {
                         minus2 = minus1;
                         minus1 = delta;
                         delta = price - lastPrice;
+
                         if (i > 3) {
                             key = [minus3, minus2, minus1, delta].join(',');
+
                             if (!firstSequences.has(key)) {
                                 firstSequences.add(key);
                                 sequences.set(key, (sequences.get(key) ?? 0) + price);
